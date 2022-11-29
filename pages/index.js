@@ -3,12 +3,8 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 
-export default function Home({ breeds = [] }) {
-  const [breedList, setBreedList] = useState([]);
-
-  useEffect(() => {
-    setBreedList(Object.keys(breeds));
-  }, []);
+export default function Home({ breeds }) {
+  const [breedList] = useState(() => Object.keys(breeds));
 
   return (
     <div className={styles.container}>
